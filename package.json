@@ -1,0 +1,14 @@
+{
+  "name": "ariya-karan-accounting",
+  "version": "1.0.0",
+  "description": "ARIYA KARAN Accounting, Inventory & Trade Management System",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win --x64 --ia32"
+  },
+  "devDependencies": {
+    "electron": "^38.2.0",
+    "electron-builder": "^26.0.12"
+  }
+}
