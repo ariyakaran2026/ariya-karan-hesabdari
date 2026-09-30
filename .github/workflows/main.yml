@@ -1,0 +1,33 @@
+name: Build ARIYA KARAN Windows EXE
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: دریافت پروژه
+        uses: actions/checkout@v4
+
+      - name: نصب Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: نصب وابستگی‌ها
+        run: npm install
+
+      - name: ساخت فایل نصب Windows
+        run: npm run build:win
+
+      - name: ذخیره فایل نصب
+        uses: actions/upload-artifact@v4
+        with:
+          name: ARIYA-KARAN-Windows
+          path: dist/*
