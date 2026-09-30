@@ -12,21 +12,20 @@ jobs:
 
     steps:
       - name: دریافت پروژه
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: نصب Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22
-          cache: npm
 
       - name: نصب وابستگی‌ها
-        run: npm install
+        run: npm install --no-audit --no-fund
 
-      - name: ساخت فایل نصب Windows
+      - name: ساخت نصب‌کننده Windows
         run: npm run build:win
 
-      - name: ذخیره فایل نصب
+      - name: ذخیره نصب‌کننده
         uses: actions/upload-artifact@v4
         with:
           name: ARIYA-KARAN-Windows
